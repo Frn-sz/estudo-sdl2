@@ -19,7 +19,16 @@ int main(int argc, char const *argv[])
     if (!window)
         exit(1);
 
-    SDL_Delay(3000);
+    bool quit = false;
+    while (!quit)
+    {
+        SDL_Event event;
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+                quit = true;
+        }
+    }
 
     SDL_DestroyWindow(window);
 
