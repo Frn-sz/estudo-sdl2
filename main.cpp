@@ -25,8 +25,20 @@ int main(int argc, char const *argv[])
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            if (event.type == SDL_QUIT)
+            switch (event.type)
+            {
+            case SDL_QUIT:
                 quit = true;
+                break;
+            case SDL_MOUSEMOTION:
+                cout << "Mouse has been moved" << endl;
+                break;
+            case SDL_KEYDOWN:
+                cout << event.key.keysym.sym << "key has been pressed" << endl;
+                break;
+            default:
+                break;
+            }
         }
     }
 
