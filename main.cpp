@@ -1,4 +1,4 @@
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <iostream>
 
 #define SCREEN_HEIGHT 800
@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 
     initialize_SDL();
 
-    window = SDL_CreateWindow("SDL2 Test", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("SDL2 Test", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
 
     if (!window)
         exit(1);
@@ -27,14 +27,14 @@ int main(int argc, char const *argv[])
         {
             switch (event.type)
             {
-            case SDL_QUIT:
+            case SDL_EVENT_QUIT:
                 quit = true;
                 break;
-            case SDL_MOUSEMOTION:
+            case SDL_EVENT_MOUSE_MOTION:
                 cout << "Mouse has been moved" << endl;
                 break;
-            case SDL_KEYDOWN:
-                cout << event.key.keysym.sym << "key has been pressed" << endl;
+            case SDL_EVENT_KEY_DOWN:
+                cout << event.key.key << "key has been pressed" << endl;
                 break;
             default:
                 break;
