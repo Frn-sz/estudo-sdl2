@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 
     initialize_SDL();
 
-    window = SDL_CreateWindow("SDL2 Test", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
+    window = SDL_CreateWindow("SDL2 Test", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
     if (!window)
         exit(1);
