@@ -14,12 +14,13 @@ int main(int argc, char const *argv[])
 
     initialize_SDL();
 
-    window = SDL_CreateWindow("SDL2 Test", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+    window = SDL_CreateWindow("SDL3 Test", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
     if (!window)
         exit(1);
 
     bool quit = false;
+
     while (!quit)
     {
         SDL_Event event;
@@ -39,6 +40,13 @@ int main(int argc, char const *argv[])
             default:
                 break;
             }
+        }
+
+        const bool *state = SDL_GetKeyboardState(NULL);
+
+        if (state[SDL_SCANCODE_RIGHT])
+        {
+            cout << "Right arrow is being pressed" << endl;
         }
     }
 
