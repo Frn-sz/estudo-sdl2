@@ -1,4 +1,6 @@
 #include <SDL3/SDL.h>
+#include <glad/glad.h>
+
 #include <iostream>
 
 #define SCREEN_HEIGHT 800
